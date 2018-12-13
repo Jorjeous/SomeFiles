@@ -14,6 +14,7 @@
 #define MAX_MSG 101
 #define MAX_BUFF 201
 
+void ctrl_c_and_exit(int sig);
 
 typedef struct ClientNode {
     int data;
@@ -103,6 +104,7 @@ void client_handler(void *p_client) {
     free(np);
 }
 
+
 int main()
 {
     signal(SIGINT, ctrl_c_and_exit);
@@ -170,4 +172,5 @@ void ctrl_c_and_exit(int sig) {
         free(tmp);
     }
     printf("Bye\n");
-    exit(7);
+exit(7);
+}
